@@ -5,12 +5,13 @@ var ffmpeg = require('fluent-ffmpeg');
  *    output - string, path of output file
  *    callback - function, node-style callback fn (error, result)        
  */
-
+var start=8;
+var duration=2.07;
 
 function convert(input, output, callback) {
     ffmpeg(input)
-        .setStartTime(5)                      // this sets the starting time for the audio file....
-        .duration(7)                          // this is the duration for the audio file....
+        .setStartTime(start)                      // this sets the starting time for the audio file....
+        .duration(duration)                          // this is the duration for the audio file....
         .output(output)
         .on('end', function() {                    
             console.log('conversion ended');
