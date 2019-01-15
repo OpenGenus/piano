@@ -19,8 +19,8 @@
   * Third, Starting time of the audio file in seconds.
   * Fourth, Duration of the audio file in seconds.
   
-   e.g : 
+    e.g : 
    
-   node converter.js URL "https://www.youtube.com/watch?v=ZwM5zmm-nkM&list=PL9FUXHTBubp-_e0wyNu1jfVVJ2QVAi5NW&index=2&t=0s" 2 3
+   * node converter.js URL "https://www.youtube.com/watch?v=ZwM5zmm-nkM&list=PL9FUXHTBubp-_e0wyNu1jfVVJ2QVAi5NW&index=2&t=0s" 2 3
    
-   node converter.js local "./sample_input/sample.mp4" 2 3
+   * node converter.js local "./sample_input/sample.mp4" 2 3
