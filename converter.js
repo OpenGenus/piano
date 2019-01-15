@@ -6,20 +6,25 @@ const ytdl = require('ytdl-core');
  *    output - string, path of output file
  *    callback - function, node-style callback fn (error, result)        
  */
-var videoPath = process.argv[2];
-var URL = process.argv[3];
-var start = process.argv[4];
-var duration = process.argv[5];
+var control = process.argv[2];
 
-var ytVideo=ytdl(URL,{ filter: 'audioonly'})
+if(control === "URL"){
+  var URL = process.argv[3];
+  var ytVideo=ytdl(URL,{ filter: 'audioonly'})
             .pipe(fs.createWriteStream('./ytAudio/music.mp3'));
+}
 
+else if(control === "local"){
+  var videoPath = process.argv[3];
+  //this converts seconds into miliseconds...
+  var start = process.argv[4] * 1000; 
+  //this converts seconds into miliseconds...      
+  var duration = process.argv[5] * 1000;    
 
-
-function convert(input,output,start,duration,callback) {
+  function convert(input,output,start,duration,callback) {
     ffmpeg(input)
-        .setStartTime(start)                      // this sets the starting time for the audio file....
-        .duration(duration)                          // this is the duration for the audio file....
+        .setStartTime(start)                   // this sets the starting time for the audio file....
+        .duration(duration)                    // this is the duration for the audio file....
         .output(output)
         .on('end', function() {                    
             console.log('conversion ended');
@@ -28,14 +33,14 @@ function convert(input,output,start,duration,callback) {
             console.log('error: ', e.code, e.msg);
             callback(err);
         }).run();
+  }
+  
+  convert(videoPath, './sample_output/output.mp3',start, duration, function(err){
+    if(!err) {
+       console.log('conversion complete');
+       
+    }
+  });
+
 }
 
-convert(videoPath, './sample_output/output.mp3',start, duration, function(err){
-   if(!err) {
-       console.log('conversion complete');
-       //...
-
-   }
-});
-
-console.log(process.argv);
