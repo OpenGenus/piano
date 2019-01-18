@@ -11,7 +11,7 @@
   * [Video/Audio converter installation](https://www.npmjs.com/package/video-converter/)
   * [FFmpeg Installation](https://github.com/adaptlearning/adapt_authoring/wiki/Installing-FFmpeg)
   * [ytdl-core Installation](https://www.npmjs.com/package/ytdl-core)
-  
+  * [play-sound Installation](https://www.npmjs.com/package/play-sound)
 ## Running
   To run the script four parameters are to be passed as command line arguments.
   * First, "URL" for downloading audio files from youtube ,or, "local" to convert a video file, in local disk, to audio file.
