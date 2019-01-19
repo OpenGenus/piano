@@ -47,6 +47,11 @@ else if(control === "local"){
 
 }
 
+else if(control =='play'){
+  var path = process.argv[3];
+  play(path);
+}
+
 function play(path){
    player.play(path, function(err){
       if (err) throw err
