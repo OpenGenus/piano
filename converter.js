@@ -2,13 +2,9 @@ var ffmpeg = require('fluent-ffmpeg');
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 var player = require('play-sound')(opts = {player : 'C:/Program Files/mplayer/mplayer'})
-// var player = require('play-sound')(opts = {})
- /**
- *    input - string, path of input file
- *    output - string, path of output file
- *    callback - function, node-style callback fn (error, result)        
- **/
+
 var control = process.argv[2];
+var sound=process.argv[6];
 
 if(control === "URL"){
     var URL = process.argv[3];
@@ -16,17 +12,10 @@ if(control === "URL"){
     var ytVideo = ytdl(URL,{ filter: 'audioonly'})
                   .pipe(fs.createWriteStream('./ytAudio/music.mp3'))
                   .on('finish', function(){
-                    player.play('./ytAudio/music.mp3', function(err){
-                      if (err) throw err
-                    })
-                  })
+                    if(sound=='play')
+                      play('./ytAudio/music.mp3');
+                   })
 }
-      
-
-  
-  
-
-
 else if(control === "local"){
   var videoPath = process.argv[3];
   //this converts seconds into miliseconds...
@@ -51,14 +40,17 @@ else if(control === "local"){
   convert(videoPath, './sample_output/output.mp3',start, duration, function(err){
     if(!err) {
        console.log('conversion complete');
-       // $ mplayer foo.mp3 
-     player.play('./sample_output/output.mp3', function(err){
-      if (err) throw err
-    })
-       
+       if(sound=='play')
+       play('./sample_output/output.mp3');
     }
   })
 
+}
+
+function play(path){
+   player.play(path, function(err){
+      if (err) throw err
+   })
 }
 
 
