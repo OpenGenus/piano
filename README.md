@@ -15,7 +15,8 @@
 ## Running
   To run the script four parameters are to be passed as command line arguments.
   * First, "URL" for downloading audio files from youtube ,or, "local" to convert a video file, in local disk, to audio file.
-  * Second, the URL(enclosed in quotes), or, local file path(enclosed in quotes) of the video which is to be converted into audio.
+    (To play an audio from the local storage pass "play")
+  * Second, the URL(enclosed in quotes), or, local file path(enclosed in quotes) of the video which is to be converted into audio. (If play is the first argument, then pass path of of audio file in local storage )
   * Third, Starting time of the audio file in seconds.
   * Fourth, Duration of the audio file in seconds.
   
