@@ -18,9 +18,12 @@
   * Second, the URL(enclosed in quotes), or, local file path(enclosed in quotes) of the video which is to be converted into audio.
   * Third, Starting time of the audio file in seconds.
   * Fourth, Duration of the audio file in seconds.
+  * Fifth , "play" .Pass play as fifth argument if you want to play the audio after conversion.
   
     e.g : 
    
    * node converter.js URL "https://www.youtube.com/watch?v=ZwM5zmm-nkM&list=PL9FUXHTBubp-_e0wyNu1jfVVJ2QVAi5NW&index=2&t=0s" 2 3
    
    * node converter.js local "./sample_input/sample.mp4" 2 3
+   
+   * node converter.js URL "https://www.youtube.com/watch?v=ZwM5zmm-nkM&list=PL9FUXHTBubp-_e0wyNu1jfVVJ2QVAi5NW&index=2&t=0s" 2 3 play          (This plays the audio after conversion...)
